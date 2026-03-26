@@ -224,7 +224,7 @@ public class Main {
 
             if (userIndex >= 0 && selectedRoomText != null) {
 
-                int roomNumber = Integer.parseInt(
+                int roomNumber = Integer.parseInt( 
                         selectedRoomText.replaceAll("[^0-9]", "")
                 );
 
