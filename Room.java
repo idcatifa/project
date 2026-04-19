@@ -1,40 +1,38 @@
 public class Room {
     private int roomNumber;
-    private String type;
-    private boolean available;
+    private String roomType;
+    private double price;
+    private boolean isAvailable;
+    private String guestName;
 
-    public Room(int roomNumber, String type) {
+    public Room(int roomNumber, String roomType, double price) {
         this.roomNumber = roomNumber;
-        this.type = type;
-        this.available = true;
+        this.roomType = roomType;
+        this.price = price;
+        this.isAvailable = true;
+        this.guestName = "";
     }
 
-    public int getRoomNumber() {
-        return roomNumber;
+    public int getRoomNumber() { return roomNumber; }
+    public String getRoomType() { return roomType; }
+    public double getPrice() { return price; }
+    public boolean isAvailable() { return isAvailable; }
+    public String getGuestName() { return guestName; }
+
+    public void bookRoom(String guestName) {
+        if (isAvailable) {
+            this.isAvailable = false;
+            this.guestName = guestName;
+        }
     }
 
-    public String getType() {
-        return type;
+    public void releaseRoom() {
+        this.isAvailable = true;
+        this.guestName = "";
     }
-
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void bookRoom() {
-        available = false;
-    }
-
-    public void freeRoom() {
-        available = true;
-    }
-
-    public String getStatus() {
-        return available ? "Available" : "BOOKED";
-    }
-
+    
     @Override
     public String toString() {
-        return "Room " + roomNumber + " | " + type + " | " + getStatus();
+        return roomNumber + " (" + roomType + ") - " + (isAvailable ? "Available" : "Booked by " + guestName);
     }
 }

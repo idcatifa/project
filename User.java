@@ -1,29 +1,23 @@
 public class User {
     private String name;
-    private Room room;
-
-    public User(String name) {
+    private String roomType;
+    private String phoneNumber;
+    
+    public User(String name, String roomType) {
         this.name = name;
+        this.roomType = roomType;
+        this.phoneNumber = "";
     }
-
-    public String getName() {
-        return name;
+    
+    public User(String name, String roomType, String phoneNumber) {
+        this.name = name;
+        this.roomType = roomType;
+        this.phoneNumber = phoneNumber;
     }
-
-    public void setName(String newName) {
-        this.name = newName;
-    }
-
-    public void assignRoom(Room room) {
-        this.room = room;
-    }
-
-    public Room getRoom() {
-        return room;
-    }
-
-    @Override
-    public String toString() {
-        return name;
-    }
+    
+    public String getName() { return name; }
+    public String getRoomType() { return roomType; }
+    public String getPhoneNumber() { return phoneNumber; }
+    public void setName(String name) { this.name = name; }
+    public void setRoomType(String roomType) { this.roomType = roomType; }
 }
